@@ -91,10 +91,30 @@ console.log(
   orangeJuiceTotalPrice
 );
 
-const bodsonTotalPrice = data.map((i, unitPrice, amount) => unitPrice * amount);
-console.log(bodsonTotalPrice);
+const bodsonTotalPrice = data.map((product) => {
+  console.log("ширхэгийн үнэ : ", product.unitPrice);
+  console.log("тоо ширхэг : ", product.amount);
+  return product.unitPrice * product.amount;
+});
+console.log("бүх бүтээгдэхүүний нийт борлуулалтын дүн : ", bodsonTotalPrice);
 
-const maxTotalPriceIn1102 = data.filter(
-  (i) => data[i].date === "2022 - 11 - 02"
+const niitTotalPriceIn1102 = data
+  .filter((product) => product.date === "2022-11-02")
+  .map((filteredData) => filteredData.totalPrice);
+console.log(
+  "11 сарын 2 ны өдрийн бүтээгдэхүүнүүдийн борлуулалтын дүнгүүд : ",
+  niitTotalPriceIn1102
 );
-console.log(maxTotalPriceIn1102);
+
+const sumOfTotalPriceIn1102 = data
+  .filter((product) => product.date === "2022-11-02")
+  .map((filteredData) => filteredData.totalPrice)
+  .reduce((pV, cV) => pV + cV, 0);
+console.log(
+  "11 сарын 2 ны өдрийн бүтээгдэхүүнүүдийн борлуулалтын дүнгийн нийлбэр : ",
+  sumOfTotalPriceIn1102
+);
+
+import chalk from "chalk";
+
+console.log(chalk.red("Hello World"));
