@@ -105,16 +105,4 @@ console.log(
   "11 сарын 2 ны өдрийн бүтээгдэхүүнүүдийн борлуулалтын дүнгүүд : ",
   niitTotalPriceIn1102
 );
-
-const sumOfTotalPriceIn1102 = data
-  .filter((product) => product.date === "2022-11-02")
-  .map((filteredData) => filteredData.totalPrice)
-  .reduce((pV, cV) => pV + cV, 0);
-console.log(
-  "11 сарын 2 ны өдрийн бүтээгдэхүүнүүдийн борлуулалтын дүнгийн нийлбэр : ",
-  sumOfTotalPriceIn1102
-);
-
-import chalk from "chalk";
-
-console.log(chalk.red("Hello World"));
+console.log(chalk.red(maxTotalPriceIn1102));
